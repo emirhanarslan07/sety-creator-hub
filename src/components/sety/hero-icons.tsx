@@ -1,8 +1,8 @@
-import * as React from 'react';
+import type { IconBaseProps } from 'react-icons';
 import { FaYoutube, FaSpotify, FaWhatsapp } from 'react-icons/fa';
 import { SiUdemy, SiNotion, SiZoom, SiTiktok } from 'react-icons/si';
 // Wrapper components with exact brand colors
-const IconInstagram = (props: React.SVGProps<SVGSVGElement>) => (
+const IconInstagram = (props: IconBaseProps) => (
     <svg {...props} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
         <defs>
             <radialGradient id="instagram-gradient" cx="30%" cy="107%" r="150%">
@@ -17,11 +17,11 @@ const IconInstagram = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const IconYouTube = (props: React.SVGProps<SVGSVGElement>) => (
+const IconYouTube = (props: IconBaseProps) => (
     <FaYoutube {...props} style={{ color: '#FF0000', width: '100%', height: '100%' }} />
 );
 
-const IconTikTok = (props: React.SVGProps<SVGSVGElement>) => (
+const IconTikTok = (props: IconBaseProps) => (
     <SiTiktok {...props} className="text-black dark:text-white" style={{
         width: '100%',
         height: '100%',
@@ -29,7 +29,7 @@ const IconTikTok = (props: React.SVGProps<SVGSVGElement>) => (
     }} />
 );
 
-const IconUdemy = (props: React.SVGProps<SVGSVGElement>) => (
+const IconUdemy = (props: IconBaseProps) => (
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
         {/* Purple top (graduation cap) */}
         <SiUdemy {...props} style={{ color: '#A435F0', width: '100%', height: '100%', position: 'absolute', clipPath: 'inset(0 0 60% 0)' }} />
@@ -38,11 +38,11 @@ const IconUdemy = (props: React.SVGProps<SVGSVGElement>) => (
     </div>
 );
 
-const IconNotion = (props: React.SVGProps<SVGSVGElement>) => (
+const IconNotion = (props: IconBaseProps) => (
     <SiNotion {...props} className="text-black dark:text-white" style={{ width: '100%', height: '100%' }} />
 );
 
-const IconGoogleDrive = (props: React.SVGProps<SVGSVGElement>) => (
+const IconGoogleDrive = (props: IconBaseProps) => (
     <svg {...props} viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
         <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da" />
         <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47" />
@@ -55,19 +55,19 @@ const IconGoogleDrive = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 
-const IconSpotify = (props: React.SVGProps<SVGSVGElement>) => (
+const IconSpotify = (props: IconBaseProps) => (
     <FaSpotify {...props} style={{ color: '#1DB954', width: '100%', height: '100%' }} />
 );
 
-const IconWhatsApp = (props: React.SVGProps<SVGSVGElement>) => (
+const IconWhatsApp = (props: IconBaseProps) => (
     <FaWhatsapp {...props} style={{ color: '#25D366', width: '100%', height: '100%' }} />
 );
 
-const IconZoom = (props: React.SVGProps<SVGSVGElement>) => (
+const IconZoom = (props: IconBaseProps) => (
     <SiZoom {...props} style={{ color: '#2D8CFF', width: '100%', height: '100%' }} />
 );
 
-const IconGoogleCalendar = (props: React.SVGProps<SVGSVGElement>) => (
+const IconGoogleCalendar = (props: IconBaseProps) => (
     <svg {...props} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
         <rect width="22" height="22" x="13" y="13" fill="#fff" />
         <polygon fill="#1e88e5" points="25.68,20.92 26.688,22.36 28.272,21.208 28.272,29.56 30,29.56 30,18.616 28.56,18.616" />
