@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MagazaUsernameRouteImport } from './routes/magaza.$username'
+import { Route as PanelTabRouteImport } from './routes/panel.$tab'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MagazaUsernameRoute = MagazaUsernameRouteImport.update({
+  id: '/magaza/$username',
+  path: '/magaza/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PanelTabRoute = PanelTabRouteImport.update({
+  id: '/panel/$tab',
+  path: '/panel/$tab',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/magaza/$username': typeof MagazaUsernameRoute
+  '/panel/$tab': typeof PanelTabRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/magaza/$username': typeof MagazaUsernameRoute
+  '/panel/$tab': typeof PanelTabRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/magaza/$username': typeof MagazaUsernameRoute
+  '/panel/$tab': typeof PanelTabRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/magaza/$username' | '/panel/$tab'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/magaza/$username' | '/panel/$tab'
+  id: '__root__' | '/' | '/magaza/$username' | '/panel/$tab'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MagazaUsernameRoute: typeof MagazaUsernameRoute
+  PanelTabRoute: typeof PanelTabRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/magaza/$username': {
+      id: '/magaza/$username'
+      path: '/magaza/$username'
+      fullPath: '/magaza/$username'
+      preLoaderRoute: typeof MagazaUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/panel/$tab': {
+      id: '/panel/$tab'
+      path: '/panel/$tab'
+      fullPath: '/panel/$tab'
+      preLoaderRoute: typeof PanelTabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MagazaUsernameRoute: MagazaUsernameRoute,
+  PanelTabRoute: PanelTabRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
